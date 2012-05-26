@@ -1,0 +1,7 @@
+<p>Tasks due today (<%= format_date Date.today %>)</p>
+
+<ul>
+  <% tasks.each do |task| %>
+    <li><%= task.name %></li>
+  <% end %>
+</ul>
