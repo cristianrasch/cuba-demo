@@ -15,7 +15,8 @@ class User
       authorized_users.find { |user| user.email == email }
     end
     
-    private
+  private
+    
     def authorized_users
       @authorized_users ||= {"admin@example.com" => "change-me"}.map do |email, password|
         User.new email, password
