@@ -1,4 +1,4 @@
-<p>Tasks due today (<%= format_date Date.today %>)</p>
+<p>Tasks due <%= format_date due_date %></p>
 
 <ul>
   <% tasks.each do |task| %>

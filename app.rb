@@ -1,3 +1,4 @@
+require "date"
 require "cuba"
 require "rack/protection"
 require "cuba/render"
@@ -29,10 +30,22 @@ Cuba.define do
       _render "session/new"
     end
     
+    on "tasks/(\\d{1,2})/(\\d{1,2})/(\\d{2,4})" do |day, month, year|
+      login_required
+      due_date = parse_date(day, month, year)
+      if due_date
+        tasks = Task.due(due_date)
+        _render "tasks/index", {tasks: tasks, due_date: due_date}
+      else
+        res.redirect "/tasks"
+      end
+    end
+    
     on "tasks" do
       login_required
-      tasks = Task.due_today
-      _render "tasks/index", {tasks: tasks}
+      due_date = Date.today
+      tasks = Task.due(due_date)
+      _render "tasks/index", {tasks: tasks, due_date: due_date}
     end
   end
   
