@@ -1,7 +1,7 @@
-<p>Tasks due <%= format_date due_date %></p>
+<p>Tasks due on <%= format_date due_date %></p>
 
-<ul>
+<ul id="tasks">
   <% tasks.each do |task| %>
-    <li><%= task.name %></li>
+    <li class="task"><%= task.name %></li>
   <% end %>
 </ul>

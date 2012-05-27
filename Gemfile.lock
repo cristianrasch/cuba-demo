@@ -9,11 +9,17 @@ GEM
       rack-test (>= 0.5.4)
       selenium-webdriver (~> 2.0)
       xpath (~> 0.1.4)
+    capybara-webkit (0.12.0)
+      capybara (>= 1.0.0, < 1.2)
+      json
     childprocess (0.3.2)
       ffi (~> 1.0.6)
     cuba (3.0.0)
       rack
     ffi (1.0.11)
+    json (1.7.3)
+    launchy (2.1.0)
+      addressable (~> 2.2.6)
     libwebsocket (0.1.3)
       addressable
     mime-types (1.18)
@@ -40,6 +46,8 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
+  capybara-webkit
   cuba
+  launchy
   rack-protection
   tilt

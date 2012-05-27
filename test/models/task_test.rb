@@ -14,7 +14,7 @@ class TaskTest < MiniTest::Unit::TestCase
     tasks = Task.due(today)
     
     refute_empty tasks
-    regexp = Regexp.new("#\\d+ task due #{today.strftime '%d/%m/%Y'}")
+    regexp = Regexp.new("#\\d+ task due on #{today.strftime '%d/%m/%Y'}")
     tasks.each do |task|
       assert_match task.name, regexp
     end
