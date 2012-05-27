@@ -1,6 +1,6 @@
 module AuthenticatedSystem
   def current_user
-    @current_user ||= session["email"] ? User.find_by_email(session["email"]) : nil
+    @current_user ||= _session("email") ? User.find_by_email(_session("email")) : nil
   end
 
   def logged_in?
@@ -8,6 +8,16 @@ module AuthenticatedSystem
   end
   
   def login_required
-    res.redirect "/login" unless logged_in?
+    redirect_to("/login") unless logged_in?
+  end
+  
+private
+
+  def _session(key)
+    session[key]
+  end
+  
+  def redirect_to(path)
+    res.redirect path
   end
 end

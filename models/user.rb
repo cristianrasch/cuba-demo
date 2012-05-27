@@ -2,7 +2,7 @@ class User
   attr_reader :email, :password
   
   def initialize(email, password)
-    @email, @password = email.to_s, password
+    @email, @password = email, password
   end
   
   def authenticated_by?(passwd)
