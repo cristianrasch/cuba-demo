@@ -18,3 +18,5 @@ group :test do
   gem "factory_girl", "~> 3.0"
 end
 
+gem "rake", group: :production
+

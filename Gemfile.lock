@@ -44,6 +44,7 @@ GEM
       rack
     rack-test (0.6.1)
       rack (>= 1.0)
+    rake (0.9.2.2)
     rubyzip (0.9.8)
     rvm-capistrano (1.2.2)
       capistrano (>= 2.0.0)
@@ -68,6 +69,7 @@ DEPENDENCIES
   cuba
   factory_girl (~> 3.0)
   rack-protection
+  rake
   rvm-capistrano
   sequel
   sqlite3
