@@ -1,19 +1,23 @@
 require "minitest/autorun"
 require "capybara/dsl"
+require "factory_girl"
+require "date"
 
 require_relative "../app"
+require_relative "../models/task"
+require_relative "factories/task"
 
 class CapybaraTestCase < MiniTest::Unit::TestCase
   include Capybara::DSL
   
   def setup
     Capybara.app = Cuba
-    Capybara.javascript_driver = :webkit
+    # Capybara.javascript_driver = :webkit
   end
 
   def teardown
     Capybara.reset_sessions!
-    Capybara.use_default_driver
+    # Capybara.use_default_driver
   end
 end
 
@@ -25,6 +29,11 @@ class UserSessionTestCase < CapybaraTestCase
     fill_in "email", :with => "admin@example.com"
     fill_in "password", :with => "change-me"
     click_button "Login"
+  end
+  
+  def teardown
+    super
+    Task.delete_all
   end
 end
 
@@ -77,31 +86,35 @@ class AppTest < CapybaraTestCase
 end
 
 class AppSessionTest < UserSessionTestCase
-  # def test_logout
-  #   visit "/tasks"
-    
-  #   assert_equal "/tasks", current_path
-  #   click_link "Logout"
-  #   page.execute_script "$('#logout-form').submit()"
-  #   save_and_open_page
-  #   assert_equal "/", current_path
-  # end
-  
-  def test_tasks
+  def test_logout
     visit "/tasks"
     
     assert_equal "/tasks", current_path
-    today = Date.today.strftime("%d/%m/%Y")
-    page.has_content?("Tasks due on #{today}")
+    click_button "logout"
+    assert_equal "/", current_path
+  end
+  
+  def test_tasks
+    today = Date.today
+    FactoryGirl.create(:task, due_on: today)
+    visit "/tasks"
+    
+    assert_equal "/tasks", current_path
+    due_date = today.strftime("%d/%m/%Y")
+    page.has_content?("Tasks due on #{due_date}")
     assert find("ul#tasks")
     assert find("li.task")
   end
   
   def test_tasks_due_on_a_certain_date
-    visit "/tasks/29/5/1985"
+    tomorrow = Date.today + 1
+    due_date = tomorrow.strftime("%d/%m/%Y")
+    FactoryGirl.create(:task, due_on: tomorrow)
+    path = "/tasks/#{due_date}" 
+    visit path
     
-    assert_equal "/tasks/29/5/1985", current_path
-    page.has_content?("Tasks due on 29/05/1985")
+    assert_equal path, current_path
+    page.has_content?("Tasks due on #{due_date}")
     assert find("ul#tasks")
     assert find("li.task")
   end

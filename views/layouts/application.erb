@@ -32,7 +32,9 @@ Released   : 20120513
           <li class="current_page_item"><a href="/tasks">Tasks</a></li>
 	        <li>
 	          <form id="logout-form" method="post" action="/session/destroy">
+	            <!--a href="javascript:document.getElementById('logout-form').submit()">Logout</a-->
 	            <a href="#" onclick="$('#logout-form').submit()">Logout</a>
+	            <input type="submit" id="logout" style="display: none;"/>
 	          </form>
 	        </li>
 	      <% else %>

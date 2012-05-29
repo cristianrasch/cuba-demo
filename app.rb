@@ -30,12 +30,19 @@ Cuba.define do
       _render "session/new"
     end
     
+    on "seed" do
+      login_required
+      Task.delete_all
+      system "cd #{File.dirname __FILE__} && rake db:seed"
+      res.write "done."
+    end
+    
     on "tasks/(\\d{1,2})/(\\d{1,2})/(\\d{2,4})" do |day, month, year|
       login_required
       due_date = parse_date(day, month, year)
       
       if due_date
-        tasks = Task.due(due_date)
+        tasks = Task.due_on(due_date)
         _render "tasks/index", {tasks: tasks, due_date: due_date}
       else
         res.redirect "/tasks"
@@ -45,7 +52,7 @@ Cuba.define do
     on "tasks" do
       login_required
       due_date = Date.today
-      tasks = Task.due(due_date)
+      tasks = Task.due_on(due_date)
       _render "tasks/index", {tasks: tasks, due_date: due_date}
     end
   end
