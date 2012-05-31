@@ -10,12 +10,17 @@ class DAO
   private
   
     def connect
-      dir = File.dirname(__FILE__)
       env = ENV["RACK_ENV"] || "development"
-      db_file = File.join(dir, "#{env}.db")
-      @db = Sequel.sqlite(db_file)
-      @db.loggers << Logger.new($stdout) if env == "development"
-      @db
+      if env == "test"
+        @db = Sequel.sqlite
+      else
+        dir = File.dirname(__FILE__)
+        env = ENV["RACK_ENV"] || "development"
+        db_file = File.join(dir, "#{env}.db")
+        @db = Sequel.sqlite(db_file)
+        @db.loggers << Logger.new($stdout) if env == "development"
+        @db
+      end
     end
   end
 end
