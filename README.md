@@ -23,8 +23,6 @@ How to run the app
 1. Once you have installed all the dependencies, simply run the rackup command to fire up Rack's default WEB server.
 2. Point your browser to [this URL](http://localhost:9292/)
 
-** If you don't have them installed already you will need to install SQLite 3 development files on your system. If you are using [Debian](http://www.debian.org/) or a derived OS such as [Ubuntu](http://www.ubuntu.com) you can simply install the libsqlite3-dev package.
-
 Bonus points
 ------------
 Besides learning about [Cuba](http://cuba.is/), you will also be learning how to integrate the following libraries into the mix:
@@ -32,3 +30,5 @@ Besides learning about [Cuba](http://cuba.is/), you will also be learning how to
 * [Sequel](http://sequel.rubyforge.org/), the database toolkit for Ruby.
 * [Mini::Test](http://www.ruby-doc.org/stdlib-1.9.3/libdoc/minitest/unit/rdoc/MiniTest.html), minimal (mostly drop-in) replacement for test-unit.
 * [Capybara](https://github.com/jnicklas/capybara), an acceptance test framework for web applications.
+
+** If you don't have them installed already you will need to install SQLite 3 development files on your system. If you are using [Debian](http://www.debian.org/) or a derived OS such as [Ubuntu](http://www.ubuntu.com) you can simply install the libsqlite3-dev package.
