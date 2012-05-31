@@ -18,6 +18,8 @@ How to run the test suite
 3. Run the bundle install command to have all the required libraries** installed
 4. Run the rake command (rake:test it's the default task see the [Rakefile](https://github.com/cristianrasch/cuba-demo/blob/master/Rakefile) for details)
 
+** If you don't have them installed already you will need to install SQLite 3 development files on your system. If you are using [Debian](http://www.debian.org/) or a derived OS such as [Ubuntu](http://www.ubuntu.com) you can simply install the libsqlite3-dev package.
+
 How to run the app
 ------------------
 1. Once you have installed all the dependencies, simply run the rackup command to fire up Rack's default WEB server.
@@ -31,4 +33,6 @@ Besides learning about [Cuba](http://cuba.is/), you will also be learning how to
 * [Mini::Test](http://www.ruby-doc.org/stdlib-1.9.3/libdoc/minitest/unit/rdoc/MiniTest.html), minimal (mostly drop-in) replacement for test-unit.
 * [Capybara](https://github.com/jnicklas/capybara), an acceptance test framework for web applications.
 
-** If you don't have them installed already you will need to install SQLite 3 development files on your system. If you are using [Debian](http://www.debian.org/) or a derived OS such as [Ubuntu](http://www.ubuntu.com) you can simply install the libsqlite3-dev package.
+License
+-------
+cuba-demo is released under the [MIT license](www.opensource.org/licenses/MIT)
