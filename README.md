@@ -8,12 +8,12 @@ The aim of this dummy demo app is to show some simple design patterns and implem
 Requirements
 ------------
 1. [RVM](https://rvm.io//), the Ruby Version Manager.
-2. Ruby (rvm install ruby-1.9.3-p125)
+2. [Ruby](http://www.ruby-lang.org/en/) (rvm install ruby-1.9.3-p125)
 3. [Bundler](http://gembundler.com/) (the latest versions of RVM will install it for you automatically)
 
 How to run the test suite
 -------------------------
-1. Clone the [repository](git://github.com/cristianrasch/cuba-demo.git) (git clone git://github.com/cristianrasch/cuba-demo.git)
+1. Clone the [repository](https://github.com/cristianrasch/cuba-demo) (git clone git://github.com/cristianrasch/cuba-demo.git)
 2. cd to the project directory.
 3. Run the bundle install command to have all the required libraries** installed
 4. Run the rake command (rake:test it's the default task see the [Rakefile](https://github.com/cristianrasch/cuba-demo/blob/master/Rakefile) for details)
@@ -35,4 +35,4 @@ Besides learning about [Cuba](http://cuba.is/), you will also be learning how to
 
 License
 -------
-cuba-demo is released under the [MIT license](www.opensource.org/licenses/MIT)
+cuba-demo is released under the [MIT license](http://www.opensource.org/licenses/MIT)
