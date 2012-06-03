@@ -1,5 +1,6 @@
 <form method="post" action="/session">
   <fieldset>
+    <%= Rack::Csrf.tag(env) %>
     <p>
       <label for="email">Email:</label><br/>
       <input name="email" id="email" type="text" size="30"/>

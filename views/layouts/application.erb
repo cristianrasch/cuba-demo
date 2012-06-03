@@ -15,6 +15,7 @@ Released   : 20120513
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <%= Rack::Csrf.metatag(env) %>
     <title>TODO List by Cristian Rasch</title>
     <link href="http://fonts.googleapis.com/css?family=Arvo" rel="stylesheet" type="text/css" />
     <link href="/stylesheets/application.css" rel="stylesheet" type="text/css" media="screen" />
@@ -32,6 +33,7 @@ Released   : 20120513
           <li class="current_page_item"><a href="/tasks">Tasks</a></li>
 	        <li>
 	          <form id="logout-form" method="post" action="/session/destroy">
+	            <%= Rack::Csrf.tag(env) %>
 	            <!--a href="javascript:document.getElementById('logout-form').submit()">Logout</a-->
 	            <a href="#" onclick="$('#logout-form').submit()">Logout</a>
 	            <input type="submit" id="logout" style="display: none;"/>

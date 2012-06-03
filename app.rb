@@ -1,12 +1,15 @@
 require "date"
 require "cuba"
 require "rack/protection"
+require "rack/csrf"
 require "cuba/render"
 
 Cuba.use Rack::Static, urls: %w(/stylesheets /images), root: "public"
+Cuba.use Rack::ShowExceptions
 Cuba.use Rack::Session::Cookie
 Cuba.use Rack::Protection
 Cuba.use Rack::Protection::RemoteReferrer
+Cuba.use Rack::Csrf, raise: true
 Cuba.plugin Cuba::Render
 
 require_relative "models/user"

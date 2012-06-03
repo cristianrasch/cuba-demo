@@ -44,6 +44,8 @@ GEM
       rack
     rack-test (0.6.1)
       rack (>= 1.0)
+    rack_csrf (2.4.0)
+      rack (>= 0.9)
     rake (0.9.2.2)
     rubyzip (0.9.8)
     rvm-capistrano (1.2.2)
@@ -69,6 +71,7 @@ DEPENDENCIES
   cuba
   factory_girl (~> 3.0)
   rack-protection
+  rack_csrf
   rake
   rvm-capistrano
   sequel
